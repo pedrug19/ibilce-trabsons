@@ -41,9 +41,6 @@ public class CadastraPassageiro {
     }
     
     public void setDatanasc (int diaNasc, int mesNasc, int anoNasc) {
-        this.diaNasc = diaNasc;
-        this.mesNasc = mesNasc;
-        this.anoNasc = anoNasc;
         data.setDia(diaNasc);
         data.setMes(mesNasc);
         data.setAno(anoNasc);

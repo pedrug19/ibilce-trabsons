@@ -12,12 +12,12 @@ package sistemapassagem;
  * Pedrenrique Guimarães
  */
 public class CadastraMotorista {
-	private int cnh;
+	private String cnh;
 	private String nome;
 	private int diaNasc, mesNasc, anoNasc;
 	private Data admissao;
 	
-	public CadastraMotorista(int cnh, String nome, int diaNasc, int mesNasc, int anoNasc, Data admissao){
+	public CadastraMotorista(String cnh, String nome, int diaNasc, int mesNasc, int anoNasc, Data admissao){
 		this.cnh = cnh;
 		this.nome = nome;
 		this.diaNasc = diaNasc;
@@ -31,7 +31,7 @@ public class CadastraMotorista {
 		this.nome = nome;
 	}
 	
-	public void setCnh(int cnh){
+	public void setCnh(String cnh){
 		this.cnh = cnh;
 	}
 	
