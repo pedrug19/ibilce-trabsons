@@ -1,11 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sistemapassagem;
-
-import java.util.Scanner;
 
 /**
  *
@@ -69,21 +62,11 @@ public class CadastraOnibus {
 		}
 	}
 	
-	//Mover essa função pra Main!
-	public void sistemaOnibus(int x){
-		Scanner in = new Scanner(System.in);
-		CadastraOnibus onibus[] = new CadastraOnibus[100];
-		
-		System.out.println("Digite o modelo do ônibus: ");
-		modelo = in.nextLine();
-		
-		System.out.println("Digite a marca do ônibus: ");
-		marca = in.nextLine();
-		
-		System.out.println("Digite a kilometragem: ");
-		kilometragem = in.nextInt();
-		
-		System.out.println("Digite o ano de fabricação: ");
-		ano = in.nextInt();
+	public void getBus(){
+		System.out.println("Marca: " + marca);
+		System.out.println("Modelo: " + modelo);
+		System.out.println("Ano de Fabricação: " + ano);
+		System.out.println("Kilometragem: " + kilometragem);
 	}
+	
 }
