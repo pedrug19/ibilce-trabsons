@@ -13,3 +13,8 @@ TODO:
 * Código das rotas tá incompleto!
 * Assinalar motorista às rotas e ônibus também precisa ser feito
 * Qualquer coisa que eu não tenha pensado aqui
+
+MUDANÇAS DO PATCH NOVO:
+* Reescrevendo Rota (tava tudo errado)
+* Usando ArrayList
+* Comecei a implementar a Main
