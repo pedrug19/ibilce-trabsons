@@ -19,6 +19,7 @@ public class SistemaPassagem {
 		Scanner input = new Scanner(System.in);
         List<CadastraOnibus> listaOnibus = new ArrayList<CadastraOnibus>();
         CadastraPassageiro passageiro;
+        CadastraOnibus onibus;
         List<CadastraPassageiro> listaPassageiro = new ArrayList<CadastraPassageiro>();
         List<Rota> listaRota = new ArrayList<Rota>();
         List<CadastraMotorista> listaMotorista = new ArrayList<CadastraMotorista>();
@@ -65,9 +66,9 @@ public class SistemaPassagem {
         	System.out.println("Digite o rg: ");
             	rg = input.nextLine();
             	System.out.print("Digite o dia de nascimento: ");
-            	dia = input.nextInt();
+            	dia = Integer.parseInt(input.nextLine());
             	System.out.print("Digite o mês de nascimento: ");
-            	mes = input.nextInt();
+            	mes = Integer.parseInt(input.nextLine());
             	System.out.print("Digite o ano de nascimento: ");
             	ano = Integer.parseInt(input.nextLine()); //Evita um problema do Scanner pular o próximo input.nextLine()
             	System.out.println("Digite a profissão: ");
@@ -102,7 +103,7 @@ public class SistemaPassagem {
             	ano = Integer.parseInt(input.nextLine());
             	Data admissao = new Data(dia, mes, ano);
             	
-            	CadastraMotorista motorista = new CadastraMotorista(nome, cnh, dia, mes, ano, admissao);
+            	CadastraMotorista motorista = new CadastraMotorista(cnh, nome, dia, mes, ano, admissao);
             	listaMotorista.add(motorista);
         	}
                 //Exclui o último motorista da lista
@@ -143,9 +144,9 @@ public class SistemaPassagem {
         		System.out.println("Digite o numero da CNH: ");
         		cnh = input.nextLine();
         		System.out.print("Digite o dia de admissão: ");
-        		dia = input.nextInt();
+        		dia = Integer.parseInt(input.nextLine());
         		System.out.print("Digite o mês de admissão: ");
-        		mes = input.nextInt();
+        		mes = Integer.parseInt(input.nextLine());
         		System.out.print("Digite o ano de admissão: ");
         		ano = Integer.parseInt(input.nextLine());
         		
@@ -162,46 +163,46 @@ public class SistemaPassagem {
         	}
 		// Cadastra um novo ônibus
         	if(opcao == 13){
-        	System.out.println("--Cadastrar Ônibus--");       		           
-        	System.out.println("Digite modelo do ônibus: ");
-        	modelo = input.nextLine();
-        	System.out.println("Digite a marca do ônibus: ");
-            	marca = input.nextLine();
-            	System.out.print("Digite a kilometragem do ônibus: ");
-            	kilometragem = input.nextInt();
-            	System.out.print("Digite o ano: ");
-            	ano = input.nextInt();
-            	System.out.print("Digite o número de vagas: ");
-            	vagas = input.nextInt();
-            	CadastraOnibus onibus = new CadastraOnibus(modelo, marca, kilometragem, ano);
-            	listaOnibus.add(onibus); // Adiciona o novo ônibus ao final da lista
-                listaOnibus.get(listaOnibus.size()).criarAssentos(vagas); // Chama o método criarAssentos do último elemento adicionado à lista
-        	listaOnibus.get(listaOnibus.size()).reservarAssentos(); // Chama o método reservarAssentos do último elemento ônibus da lista
+                    System.out.println("--Cadastrar Ônibus--");       		           
+                    System.out.println("Digite modelo do ônibus: ");
+                    modelo = input.nextLine();
+                    System.out.println("Digite a marca do ônibus: ");
+                    marca = input.nextLine();
+                    System.out.print("Digite a kilometragem do ônibus: ");
+                    kilometragem = Integer.parseInt(input.nextLine());
+                    System.out.print("Digite o ano: ");
+                    ano = Integer.parseInt(input.nextLine());
+                    System.out.print("Digite o número de vagas: ");
+                    vagas = Integer.parseInt(input.nextLine());
+                    onibus = new CadastraOnibus(modelo, marca, kilometragem, ano);
+                    listaOnibus.add(onibus); // Adiciona o novo ônibus ao final da lista
+                    listaOnibus.get(listaOnibus.size()).criarAssentos(vagas); // Chama o método criarAssentos do último elemento adicionado à lista
+                    listaOnibus.get(listaOnibus.size()).reservarAssentos(); // Chama o método reservarAssentos do último elemento ônibus da lista
                 } 		
 		// Exclui o ônibus de índice i
                 if(opcao == 14){
                     System.out.println("Digite o índice do ônibus a ser excluído: ");
-                    i= input.nextInt();
+                    i= Integer.parseInt(input.nextLine());
                     listaOnibus.remove(i);
                 }		
 		// Altera dos dados do ônibus de índice i
                 if(opcao == 15){
 		    System.out.println("--Alterar dados Ônibus--");	
                     System.out.println("Digite o índice do onibus a sofrer alteração: ");
-                    i= input.nextInt(); //Índice do elemento que será alterado
+                    i= Integer.parseInt(input.nextLine()); //Índice do elemento que será alterado
                     System.out.println("Digite o nome do motorista: ");
                     listaOnibus.get(i).setMarca(input.nextLine()); //Usa o método set para alterar o atributo "marca" do onibus de índice i
                     System.out.println("Digite o modelo da CNH: ");
                     listaOnibus.get(i).setModelo(input.nextLine()); //Usa o método set para alterar o atributo "modelo" do onibus de índice i
                     System.out.print("Digite o ano: ");
-                    listaOnibus.get(i).setAno(input.nextInt()); //Usa o método set para alterar o atributo "ano" do onibus de índice i
+                    listaOnibus.get(i).setAno(Integer.parseInt(input.nextLine())); //Usa o método set para alterar o atributo "ano" do onibus de índice i
                     System.out.print("Digite a kilometragem: ");
-                    listaOnibus.get(i).setKilometragem(input.nextInt()); //Usa o método set para alterar o atributo "ano" do onibus de índice i                    
+                    listaOnibus.get(i).setKilometragem(Integer.parseInt(input.nextLine())); //Usa o método set para alterar o atributo "ano" do onibus de índice i                    
                 }
 		// Mostra os dados do ônibus de índice i
                 if(opcao == 16){ 
                     System.out.println("Digite o índice do ônibus: ");
-                    i= input.nextInt(); //Índice do ônibus
+                    i= Integer.parseInt(input.nextLine()); //Índice do ônibus
                     listaOnibus.get(i).getBus(); //Método que printa os dados do ônibus
                 } 		
         	
