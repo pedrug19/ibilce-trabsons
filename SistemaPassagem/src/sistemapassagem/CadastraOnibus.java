@@ -15,7 +15,7 @@ public class CadastraOnibus {
 	private int i = 0;
 	private int contador;
 	
-	private CadastraOnibus(String modelo, String marca, int kilometragem, int ano){
+	CadastraOnibus(String modelo, String marca, int kilometragem, int ano){
 		this.modelo = modelo;
 		this.marca = marca;
 		this.kilometragem = kilometragem;
