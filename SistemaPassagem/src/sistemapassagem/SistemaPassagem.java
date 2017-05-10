@@ -130,11 +130,21 @@ public class SistemaPassagem {
                 }
                 // Mostra na tela os dados do motorista pelo índice
                 if(opcao == 8){ 
-                    System.out.println("Digite o índice do motorista: ");
-                    i= Integer.parseInt(input.nextLine()); //Índice do motorista
-                    listaMotorista.get(i).getMotorista(); //Método que printa os dados do motorista
-                }  		
-        	//Cadastro de Rota
+                    if(listaMotorista.isEmpty()==true){
+                        System.out.println("Lista vazia!");
+                    }
+                    else{
+                        System.out.println("Digite o índice do motorista: ");
+                        i= Integer.parseInt(input.nextLine()); //Índice do motorista
+                        if(listaMotorista.get(i)==null){
+                            System.out.println("Índice inválido!");
+                        }
+                        else{
+                            listaMotorista.get(i).getMotorista(); //Método que printa os dados do motorista                                                    
+                        }
+                    }
+                }                
+		//Cadastro de Rota
         	if(opcao == 9){
         		System.out.println("--Cadastrar Rota--");
     		
