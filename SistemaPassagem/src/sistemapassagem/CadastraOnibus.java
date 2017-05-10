@@ -68,4 +68,20 @@ public class CadastraOnibus {
 		System.out.println("Kilometragem: " + kilometragem);
 	}
 	
+        public void setMarca(String marca){
+            this.marca= marca;
+        }
+	
+        public void setModelo(String modelo){
+            this.modelo= modelo;
+        }
+	
+        public void setAno(int ano){
+            this.ano= ano;
+        }
+	
+        public void setKilometragem(int kilometragem){
+            this.kilometragem= kilometragem;
+        }	
+	
 }
