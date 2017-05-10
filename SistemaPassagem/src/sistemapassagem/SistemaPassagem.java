@@ -161,6 +161,24 @@ public class SistemaPassagem {
         	    		data, dataChegada, onibus, preco);*/
         		//listaRota.add(rota);
         	}
+		// Cadastra um novo ônibus
+        	if(opcao == 13){
+        	System.out.println("--Cadastrar Ônibus--");       		           
+        	System.out.println("Digite modelo do ônibus: ");
+        	modelo = input.nextLine();
+        	System.out.println("Digite a marca do ônibus: ");
+            	marca = input.nextLine();
+            	System.out.print("Digite a kilometragem do ônibus: ");
+            	kilometragem = input.nextInt();
+            	System.out.print("Digite o ano: ");
+            	ano = input.nextInt();
+            	System.out.print("Digite o número de vagas: ");
+            	vagas = input.nextInt();
+            	CadastraOnibus onibus = new CadastraOnibus(modelo, marca, kilometragem, ano);
+            	listaOnibus.add(onibus); // Adiciona o novo ônibus ao final da lista
+                listaOnibus.get(listaOnibus.size()).criarAssentos(vagas); // Chama o método criarAssentos do último elemento adicionado à lista
+        	listaOnibus.get(listaOnibus.size()).reservarAssentos(); // Chama o método reservarAssentos do último elemento ônibus da lista
+                } 		
 		// Exclui o ônibus de índice i
                 if(opcao == 14){
                     System.out.println("Digite o índice do ônibus a ser excluído: ");
