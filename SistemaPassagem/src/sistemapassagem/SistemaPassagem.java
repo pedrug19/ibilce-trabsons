@@ -106,7 +106,9 @@ public class SistemaPassagem {
             	CadastraMotorista motorista = new CadastraMotorista(nome, cnh, dia, mes, ano, admissao);
             	listaMotorista.add(motorista);
         	}
-        	
+                if(opcao == 6){//Exclui o último motorista da lista
+                    listaMotorista.remove(listaMotorista.size()-1); //Usa o método "remove" para excluir da lista o elemento com último índice
+                }
         	//Cadastro de Rota
         	if(opcao == 9){
         		System.out.println("--Cadastrar Rota--");
