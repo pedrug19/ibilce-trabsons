@@ -161,6 +161,20 @@ public class SistemaPassagem {
         	    		data, dataChegada, onibus, preco);*/
         		//listaRota.add(rota);
         	}
+		
+                if(opcao == 15){
+		    System.out.println("--Editar dados Ônibus--");	
+                    System.out.println("Digite o índice do onibus a sofrer alteração: ");
+                    i= input.nextInt(); //Índice do elemento que será alterado
+                    System.out.println("Digite o nome do motorista: ");
+                    listaOnibus.get(i).setMarca(input.nextLine()); //Usa o método set para alterar o atributo "marca" do onibus de índice i
+                    System.out.println("Digite o modelo da CNH: ");
+                    listaOnibus.get(i).setModelo(input.nextLine()); //Usa o método set para alterar o atributo "modelo" do onibus de índice i
+                    System.out.print("Digite o ano: ");
+                    listaOnibus.get(i).setAno(input.nextInt()); //Usa o método set para alterar o atributo "ano" do onibus de índice i
+                    System.out.print("Digite a kilometragem: ");
+                    listaOnibus.get(i).setKilometragem(input.nextInt()); //Usa o método set para alterar o atributo "ano" do onibus de índice i                    
+                }		
         	
         	//Cadastro de Ônibus
         	
