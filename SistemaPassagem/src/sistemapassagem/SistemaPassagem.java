@@ -58,11 +58,11 @@ public class SistemaPassagem {
         	
         	//Cadastro de passageiros
         	if(opcao == 1){
-        		System.out.println("--Cadastrar Passageiro--");
-        		
-        		System.out.println("Digite o nome do passageiro: ");
-        		nome = input.nextLine();
-        		System.out.println("Digite o rg: ");
+        	System.out.println("--Cadastrar Passageiro--");
+      		
+        	System.out.println("Digite o nome do passageiro: ");
+        	nome = input.nextLine();
+        	System.out.println("Digite o rg: ");
             	rg = input.nextLine();
             	System.out.print("Digite o dia de nascimento: ");
             	dia = input.nextInt();
@@ -89,16 +89,15 @@ public class SistemaPassagem {
         	
         	//Cadastro de Motorista
         	if(opcao == 5){
-        		System.out.println("--Cadastrar Motorista--");
-        		
-        		System.out.println("Digite o nome do motorista: ");
-        		nome = input.nextLine();
-        		System.out.println("Digite o numero da CNH: ");
+        	System.out.println("--Cadastrar Motorista--");    		
+        	System.out.println("Digite o nome do motorista: ");
+        	nome = input.nextLine();
+        	System.out.println("Digite o numero da CNH: ");
             	cnh = input.nextLine();
             	System.out.print("Digite o dia de admissão: ");
-            	dia = input.nextInt();
+            	dia = Integer.parseInt(input.nextLine());
             	System.out.print("Digite o mês de admissão: ");
-            	mes = input.nextInt();
+            	mes = Integer.parseInt(input.nextLine());
             	System.out.print("Digite o ano de admissão: ");
             	ano = Integer.parseInt(input.nextLine());
             	Data admissao = new Data(dia, mes, ano);
@@ -106,35 +105,35 @@ public class SistemaPassagem {
             	CadastraMotorista motorista = new CadastraMotorista(nome, cnh, dia, mes, ano, admissao);
             	listaMotorista.add(motorista);
         	}
-		//Exclui o último motorista da lista
+                //Exclui o último motorista da lista
                 if(opcao == 6){ 
                         System.out.println("--Excluído da lista o último motorista--");
 			listaMotorista.remove(listaMotorista.size()-1); //Usa o método "remove" para excluir da lista o elemento com último índice
                 }
-		//Altera os dados do motorista por meio do índice digitado pelo usuário
+                //Altera os dados do motorista por meio do índice digitado pelo usuário
                 if(opcao == 7){ 
 		    System.out.println("--Editar dados Motorista--");	
                     System.out.println("Digite o índice do motorista a sofrer alteração: ");
-                    i= input.nextInt(); //Índice do elemento que será alterado
+                    i= Integer.parseInt(input.nextLine()); //Índice do elemento que será alterado
                     System.out.println("Digite o nome do motorista: ");
                     listaMotorista.get(i).setNome(input.nextLine()); //Usa o método set para alterar o atributo "nome" do motorista de índice i
                     System.out.println("Digite o numero da CNH: ");
                     listaMotorista.get(i).setCnh(input.nextLine()); //Usa o método set para alterar o atributo "cnh" do motorista de índice i
                     System.out.print("Digite o dia de admissão: ");
-                    dia = input.nextInt();
+                    dia = Integer.parseInt(input.nextLine());
                     System.out.print("Digite o mês de admissão: ");
-                    mes = input.nextInt();
+                    mes = Integer.parseInt(input.nextLine());
                     System.out.print("Digite o ano de admissão: ");
                     ano = Integer.parseInt(input.nextLine());
                     Data admissao = new Data(dia, mes, ano);
                     listaMotorista.get(i).setDatanasc(dia, mes, ano); //Usa o método set para alterar os atributos "dia", "mês" e "ano" de admissão do motorista de índice i                    
                 }
-		//Mostra os dados do motorista de índice digitado pelo usuário
+                // Mostra na tela os dados do motorista pelo índice
                 if(opcao == 8){ 
                     System.out.println("Digite o índice do motorista: ");
-                    i= input.nextInt(); //Índice do motorista
+                    i= Integer.parseInt(input.nextLine()); //Índice do motorista
                     listaMotorista.get(i).getMotorista(); //Método que printa os dados do motorista
-                }		
+                }  		
         	//Cadastro de Rota
         	if(opcao == 9){
         		System.out.println("--Cadastrar Rota--");
