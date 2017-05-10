@@ -106,11 +106,13 @@ public class SistemaPassagem {
             	CadastraMotorista motorista = new CadastraMotorista(nome, cnh, dia, mes, ano, admissao);
             	listaMotorista.add(motorista);
         	}
-                if(opcao == 6){ //Exclui o último motorista da lista
+		//Exclui o último motorista da lista
+                if(opcao == 6){ 
                         System.out.println("--Excluído da lista o último motorista--");
 			listaMotorista.remove(listaMotorista.size()-1); //Usa o método "remove" para excluir da lista o elemento com último índice
                 }
-                if(opcao == 7){ //Altera os dados do motorista por meio do índice digitado pelo usuário
+		//Altera os dados do motorista por meio do índice digitado pelo usuário
+                if(opcao == 7){ 
 		    System.out.println("--Editar dados Motorista--");	
                     System.out.println("Digite o índice do motorista a sofrer alteração: ");
                     i= input.nextInt(); //Índice do elemento que será alterado
@@ -126,6 +128,12 @@ public class SistemaPassagem {
                     ano = Integer.parseInt(input.nextLine());
                     Data admissao = new Data(dia, mes, ano);
                     listaMotorista.get(i).setDatanasc(dia, mes, ano); //Usa o método set para alterar os atributos "dia", "mês" e "ano" de admissão do motorista de índice i                    
+                }
+		//Mostra os dados do motorista de índice digitado pelo usuário
+                if(opcao == 8){ 
+                    System.out.println("Digite o índice do motorista: ");
+                    i= input.nextInt(); //Índice do motorista
+                    listaMotorista.get(i).getMotorista(); //Método que printa os dados do motorista
                 }		
         	//Cadastro de Rota
         	if(opcao == 9){
