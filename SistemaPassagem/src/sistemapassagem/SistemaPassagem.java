@@ -41,9 +41,6 @@ public class SistemaPassagem {
         List<Rota> listaRota = new ArrayList<Rota>();
         List<CadastraMotorista> listaMotorista = new ArrayList<CadastraMotorista>();
 
-        /*TODO: FAZER SISTEMA INTEIRO PARA CADASTRAR CADA UM DOS DADOS
-         * 	CONSERTAR O ERRO DO SCANNER PULAR UM DADO - FEITO
-         * Teste Passageiro*/
         while (opcao != -1) {
             //Menu principal organizado
             System.out.println("Digite o que deseja fazer:");
