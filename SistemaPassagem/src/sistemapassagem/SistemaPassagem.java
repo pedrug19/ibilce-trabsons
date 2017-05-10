@@ -110,7 +110,7 @@ public class SistemaPassagem {
                         System.out.println("--Excluído da lista o último motorista--");
 			listaMotorista.remove(listaMotorista.size()-1); //Usa o método "remove" para excluir da lista o elemento com último índice
                 }
-                if(opcao == 7){ //Altera os dados do motorista através do índice digitado pelo usuário
+                if(opcao == 7){ //Altera os dados do motorista por meio do índice digitado pelo usuário
 		    System.out.println("--Editar dados Motorista--");	
                     System.out.println("Digite o índice do motorista a sofrer alteração: ");
                     i= input.nextInt(); //Índice do elemento que será alterado
