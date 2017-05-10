@@ -19,6 +19,7 @@ public class SistemaPassagem {
         String cidadeOrigem, cidadeDestino, cidadeParada1, cidadeParada2, cidadeParada3;
         double preco;
         String nome, rg, profissao, cnh, modelo, marca, endereco;
+        int op_passa, op_oni, op_moto, op_rota;
 
         //Classe para ler os arquivos
         Scanner input = new Scanner(System.in);
@@ -85,14 +86,58 @@ public class SistemaPassagem {
                 System.out.println("Digite o endereço: ");
                 endereco = input.nextLine();
                 System.out.println("Rotas disponíveis: ");
-                if (listaRota == null) {
+                if (listaRota.isEmpty() == true) {
                     System.out.println("Não há rotas disponíveis! ");
-                    System.out.println("Não cadastrado");
+                    System.out.println("Passageiro não cadastrado.");
                 } else {
                     passageiro = new CadastraPassageiro(nome, rg, profissao, endereco, dia, mes, ano, rota);
                     listaPassageiro.add(passageiro);
                 }
 
+            }
+            //exclui passageiro
+            if (opcao == 2) {
+                if (listaPassageiro.isEmpty() == true) {
+                    System.out.println("Nao há Passageiros!");
+                } else {
+                    System.out.println("último passageiro excluido!");
+                    listaPassageiro.remove(listaPassageiro.size() - 1);
+                }
+            }
+            //alterar dados
+            if (opcao == 3) {
+                System.out.println("Digite o passageiro que deseja alterar (número):");
+                op_passa = Integer.parseInt(input.nextLine());
+                if (listaPassageiro.get(op_passa) == null && listaPassageiro.isEmpty() == true) {
+                    System.out.println("Nao há Passageiros ou Não foi encontrado!");
+                } else {
+
+                    System.out.println("Digite o nome do passageiro: ");
+                    listaPassageiro.get(op_passa).setNome(input.nextLine());
+                    System.out.println("Digite o rg: ");
+                    listaPassageiro.get(op_passa).setRg(input.nextLine());
+                    System.out.println("Digite a profissão: ");
+                    listaPassageiro.get(op_passa).setProfissao(input.nextLine());
+                    System.out.println("Digite o endereço: ");
+                    listaPassageiro.get(op_passa).setEndereco(input.nextLine());
+                    System.out.print("Digite o dia de nascimento: ");
+                    dia = Integer.parseInt(input.nextLine());
+                    System.out.print("Digite o mês de nascimento: ");
+                    mes = Integer.parseInt(input.nextLine());
+                    System.out.print("Digite o ano de nascimento: ");
+                    ano = Integer.parseInt(input.nextLine());
+                    listaPassageiro.get(op_passa).setDatanasc(dia, mes, ano);
+                }
+            }
+            //exibir
+            if (opcao == 4) {
+                System.out.println("Digite o passageiro que deseja exibir (número):");
+                op_passa = Integer.parseInt(input.nextLine());
+                if (listaPassageiro.get(op_passa) == null && listaPassageiro.isEmpty() == true) {
+                    System.out.println("Nao há Passageiros ou Não foi encontrado!");
+                } else {
+                    listaPassageiro.get(op_passa).getPassageiro();
+                }
             }
 
             //Cadastro de Motorista
@@ -113,34 +158,46 @@ public class SistemaPassagem {
                 motorista = new CadastraMotorista(cnh, nome, dia, mes, ano, admissao);
                 listaMotorista.add(motorista);
             }
-            //Exclui o último motorista da lista
-            if (opcao == 6) {
-                System.out.println("--Excluído da lista o último motorista--");
-                listaMotorista.remove(listaMotorista.size() - 1); //Usa o método "remove" para excluir da lista o elemento com último índice
+
+            if (opcao == 6) { //Exclui o último motorista da lista
+
+                if (listaMotorista.isEmpty() == true) {
+                    System.out.println("Não há Motoristas");
+                } else {
+                    System.out.println("--Excluído da lista o último motorista--");
+                    listaMotorista.remove(listaMotorista.size() - 1); //Usa o método "remove" para excluir da lista o elemento com último índice
+                }
             }
             //Altera os dados do motorista por meio do índice digitado pelo usuário
-            if (opcao == 7) {
+            if (opcao == 7) { //Altera os dados do motorista por meio do índice digitado pelo usuário
                 System.out.println("--Editar dados Motorista--");
                 System.out.println("Digite o índice do motorista a sofrer alteração: ");
-                i = Integer.parseInt(input.nextLine()); //Índice do elemento que será alterado
-                System.out.println("Digite o nome do motorista: ");
-                listaMotorista.get(i).setNome(input.nextLine()); //Usa o método set para alterar o atributo "nome" do motorista de índice i
-                System.out.println("Digite o numero da CNH: ");
-                listaMotorista.get(i).setCnh(input.nextLine()); //Usa o método set para alterar o atributo "cnh" do motorista de índice i
-                System.out.print("Digite o dia de admissão: ");
-                dia = Integer.parseInt(input.nextLine());
-                System.out.print("Digite o mês de admissão: ");
-                mes = Integer.parseInt(input.nextLine());
-                System.out.print("Digite o ano de admissão: ");
-                ano = Integer.parseInt(input.nextLine());
-                admissao = new Data(dia, mes, ano);
-                listaMotorista.get(i).setDatanasc(dia, mes, ano); //Usa o método set para alterar os atributos "dia", "mês" e "ano" de admissão do motorista de índice i                    
+                op_moto = Integer.parseInt(input.nextLine()); //Índice do elemento que será alterado
+                if (listaMotorista.isEmpty() == true && listaMotorista.get(op_moto) == null) {
+                    System.out.println("Nao há Motoristas!");
+                } else {
+                    System.out.println("Digite o nome do motorista: ");
+                    listaMotorista.get(op_moto).setNome(input.nextLine()); //Usa o método set para alterar o atributo "nome" do motorista de índice i
+                    System.out.println("Digite o numero da CNH: ");
+                    listaMotorista.get(op_moto).setCnh(input.nextLine()); //Usa o método set para alterar o atributo "cnh" do motorista de índice i
+                    System.out.print("Digite o dia de admissão: ");
+                    dia = Integer.parseInt(input.nextLine());
+                    System.out.print("Digite o mês de admissão: ");
+                    mes = Integer.parseInt(input.nextLine());
+                    System.out.print("Digite o ano de admissão: ");
+                    ano = Integer.parseInt(input.nextLine());
+                    listaMotorista.get(op_moto).setDatanasc(dia, mes, ano); //Usa o método set para alterar os atributos "dia", "mês" e "ano" de admissão do motorista de índice i                    
+                }
             }
             // Mostra na tela os dados do motorista pelo índice
             if (opcao == 8) {
-                System.out.println("Digite o índice do motorista: ");
-                i = Integer.parseInt(input.nextLine()); //Índice do motorista
-                listaMotorista.get(i).getMotorista(); //Método que printa os dados do motorista
+                System.out.println("Digite o índice do motorista que deseja exibir (número): ");
+                op_moto = Integer.parseInt(input.nextLine()); //Índice do motorista
+                if (listaMotorista.isEmpty() == true && listaMotorista.get(op_moto) == null) {
+                    System.out.println("Nao há Motoristas!");
+                } else {
+                    listaMotorista.get(op_moto).getMotorista(); //Método que printa os dados do motorista
+                }
             }
             //Cadastro de Rota
             if (opcao == 9) {
@@ -218,54 +275,93 @@ public class SistemaPassagem {
 
                 }
             }
+            //excluir rota
+            if (opcao == 10) {
+                if (listaRota.isEmpty() == true) {
+                    System.out.println("Nao há Rotas!");
+                } else {
 
-        }
-        // Cadastra um novo ônibus
-        if (opcao == 13) {
-            System.out.println("--Cadastrar Ônibus--");
-            System.out.println("Digite modelo do ônibus: ");
-            modelo = input.nextLine();
-            System.out.println("Digite a marca do ônibus: ");
-            marca = input.nextLine();
-            System.out.print("Digite a kilometragem do ônibus: ");
-            kilometragem = Integer.parseInt(input.nextLine());
-            System.out.print("Digite o ano: ");
-            ano = Integer.parseInt(input.nextLine());
-            System.out.print("Digite o número de vagas: ");
-            vagas = Integer.parseInt(input.nextLine());
-            onibus = new CadastraOnibus(modelo, marca, kilometragem, ano);
-            listaOnibus.add(onibus); // Adiciona o novo ônibus ao final da lista
-            listaOnibus.get(listaOnibus.size()).criarAssentos(vagas); // Chama o método criarAssentos do último elemento adicionado à lista
-            listaOnibus.get(listaOnibus.size()).reservarAssentos(); // Chama o método reservarAssentos do último elemento ônibus da lista
-        }
-        // Exclui o ônibus de índice i
-        if (opcao == 14) {
-            System.out.println("Digite o índice do ônibus a ser excluído: ");
-            i = Integer.parseInt(input.nextLine());
-            listaOnibus.remove(i);
-        }
-        // Altera dos dados do ônibus de índice i
-        if (opcao == 15) {
-            System.out.println("--Alterar dados Ônibus--");
-            System.out.println("Digite o índice do onibus a sofrer alteração: ");
-            i = Integer.parseInt(input.nextLine()); //Índice do elemento que será alterado
-            System.out.println("Digite o nome do motorista: ");
-            listaOnibus.get(i).setMarca(input.nextLine()); //Usa o método set para alterar o atributo "marca" do onibus de índice i
-            System.out.println("Digite o modelo da CNH: ");
-            listaOnibus.get(i).setModelo(input.nextLine()); //Usa o método set para alterar o atributo "modelo" do onibus de índice i
-            System.out.print("Digite o ano: ");
-            listaOnibus.get(i).setAno(Integer.parseInt(input.nextLine())); //Usa o método set para alterar o atributo "ano" do onibus de índice i
-            System.out.print("Digite a kilometragem: ");
-            listaOnibus.get(i).setKilometragem(Integer.parseInt(input.nextLine())); //Usa o método set para alterar o atributo "ano" do onibus de índice i                    
-        }
-        // Mostra os dados do ônibus de índice i
-        if (opcao == 16) {
-            System.out.println("Digite o índice do ônibus: ");
-            i = Integer.parseInt(input.nextLine()); //Índice do ônibus
-            listaOnibus.get(i).getBus(); //Método que printa os dados do ônibus
-        }
+                }
 
-        //Cadastro de Ônibus
+            }
+            //alterar a rota
+            if (opcao == 11) {
+                System.out.println("Digite o índice da rota que deseja exibir (número): ");
+                op_rota = Integer.parseInt(input.nextLine()); //Índice da rota
+                if (listaRota.isEmpty() == true && listaRota.get(op_rota) == null) {
+                    System.out.println("Nao há Rotas ou não foi encontrado!");
+                } else {
+
+                }
+
+            }
+            //exibir rota
+            if (opcao == 12) {
+
+                System.out.println("Digite o índice da rota que deseja exibir (número): ");
+                op_rota = Integer.parseInt(input.nextLine()); //Índice da rota
+                if (listaRota.isEmpty() == true && listaRota.get(op_rota) == null) {
+                    System.out.println("Nao há Rotas ou não foi encontrado!");
+                } else {
+
+                }
+
+            }
+
+            // Cadastra um novo ônibus
+            if (opcao == 13) {
+                System.out.println("--Cadastrar Ônibus--");
+                System.out.println("Digite modelo do ônibus: ");
+                modelo = input.nextLine();
+                System.out.println("Digite a marca do ônibus: ");
+                marca = input.nextLine();
+                System.out.print("Digite a kilometragem do ônibus: ");
+                kilometragem = Integer.parseInt(input.nextLine());
+                System.out.print("Digite o ano: ");
+                ano = Integer.parseInt(input.nextLine());
+                System.out.print("Digite o número de vagas: ");
+                vagas = Integer.parseInt(input.nextLine());
+                onibus = new CadastraOnibus(modelo, marca, kilometragem, ano);
+                listaOnibus.add(onibus); // Adiciona o novo ônibus ao final da lista
+                listaOnibus.get(listaOnibus.size()).criarAssentos(vagas); // Chama o método criarAssentos do último elemento adicionado à lista
+                listaOnibus.get(listaOnibus.size()).reservarAssentos(); // Chama o método reservarAssentos do último elemento ônibus da lista
+            }
+            // Exclui o ônibus de índice i
+            if (opcao == 14) {
+                if (listaOnibus.isEmpty() == true) {
+                    System.out.println(" Não há ônibus!");
+                }
+                System.out.println("Excluido o último Onibus!");
+                listaOnibus.remove(listaOnibus.size() - 1);
+            }
+            // Altera dos dados do ônibus de índice i
+            if (opcao == 15) {
+                System.out.println("Digite o índice do ônibus que deseja alterar (número): ");
+                op_oni = Integer.parseInt(input.nextLine()); //Índice da rota
+                if (listaOnibus.isEmpty() == true && listaOnibus.get(op_oni) == null) {
+                    System.out.println("ônibus não encontrado!");
+                } else {
+                    System.out.println("Digite o modelo: ");
+                    listaOnibus.get(op_oni).setModelo(input.nextLine());
+                    System.out.println("Digite a marca: ");
+                    listaOnibus.get(op_oni).setMarca(input.nextLine());
+                    System.out.println("Digite a Kilometragem: ");
+                    listaOnibus.get(op_oni).setKilometragem(input.nextInt());
+                    System.out.println("Digite o ano: ");
+                    listaOnibus.get(op_oni).setAno(input.nextInt());
+                }
+            }
+            //mostrar
+            if (opcao == 16) {
+                System.out.println("Digite o índice do ônibus que deseja exibir (número): ");
+                op_oni = Integer.parseInt(input.nextLine()); //Índice
+                if (listaOnibus.isEmpty() == true && listaOnibus.get(op_oni) == null) {
+                    System.out.println("Nao há Ônibus ou não foi encontrado!");
+                } else {
+                    listaOnibus.get(op_oni).getBus();
+                }
+            }
+        }
         input.close();
     }
 
