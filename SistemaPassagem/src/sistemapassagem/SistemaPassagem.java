@@ -161,9 +161,15 @@ public class SistemaPassagem {
         	    		data, dataChegada, onibus, preco);*/
         		//listaRota.add(rota);
         	}
-		
+		// Exclui o ônibus de índice i
+                if(opcao == 14){
+                    System.out.println("Digite o índice do ônibus a ser excluído: ");
+                    i= input.nextInt();
+                    listaOnibus.remove(i);
+                }		
+		// Altera dos dados do ônibus de índice i
                 if(opcao == 15){
-		    System.out.println("--Editar dados Ônibus--");	
+		    System.out.println("--Alterar dados Ônibus--");	
                     System.out.println("Digite o índice do onibus a sofrer alteração: ");
                     i= input.nextInt(); //Índice do elemento que será alterado
                     System.out.println("Digite o nome do motorista: ");
