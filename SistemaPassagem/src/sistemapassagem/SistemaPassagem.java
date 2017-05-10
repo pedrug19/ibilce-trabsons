@@ -106,9 +106,27 @@ public class SistemaPassagem {
             	CadastraMotorista motorista = new CadastraMotorista(nome, cnh, dia, mes, ano, admissao);
             	listaMotorista.add(motorista);
         	}
-                if(opcao == 6){//Exclui o último motorista da lista
-                    listaMotorista.remove(listaMotorista.size()-1); //Usa o método "remove" para excluir da lista o elemento com último índice
+                if(opcao == 6){ //Exclui o último motorista da lista
+                        System.out.println("--Excluído da lista o último motorista--");
+			listaMotorista.remove(listaMotorista.size()-1); //Usa o método "remove" para excluir da lista o elemento com último índice
                 }
+                if(opcao == 7){ //Altera os dados do motorista através do índice digitado pelo usuário
+		    System.out.println("--Editar dados Motorista--");	
+                    System.out.println("Digite o índice do motorista a sofrer alteração: ");
+                    i= input.nextInt(); //Índice do elemento que será alterado
+                    System.out.println("Digite o nome do motorista: ");
+                    listaMotorista.get(i).setNome(input.nextLine()); //Usa o método set para alterar o atributo "nome" do motorista de índice i
+                    System.out.println("Digite o numero da CNH: ");
+                    listaMotorista.get(i).setCnh(input.nextLine()); //Usa o método set para alterar o atributo "cnh" do motorista de índice i
+                    System.out.print("Digite o dia de admissão: ");
+                    dia = input.nextInt();
+                    System.out.print("Digite o mês de admissão: ");
+                    mes = input.nextInt();
+                    System.out.print("Digite o ano de admissão: ");
+                    ano = Integer.parseInt(input.nextLine());
+                    Data admissao = new Data(dia, mes, ano);
+                    listaMotorista.get(i).setDatanasc(dia, mes, ano); //Usa o método set para alterar os atributos "dia", "mês" e "ano" de admissão do motorista de índice i                    
+                }		
         	//Cadastro de Rota
         	if(opcao == 9){
         		System.out.println("--Cadastrar Rota--");
