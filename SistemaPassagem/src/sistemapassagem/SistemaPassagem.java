@@ -180,7 +180,13 @@ public class SistemaPassagem {
                     listaOnibus.get(i).setAno(input.nextInt()); //Usa o método set para alterar o atributo "ano" do onibus de índice i
                     System.out.print("Digite a kilometragem: ");
                     listaOnibus.get(i).setKilometragem(input.nextInt()); //Usa o método set para alterar o atributo "ano" do onibus de índice i                    
-                }		
+                }
+		// Mostra os dados do ônibus de índice i
+                if(opcao == 16){ 
+                    System.out.println("Digite o índice do ônibus: ");
+                    i= input.nextInt(); //Índice do ônibus
+                    listaOnibus.get(i).getBus(); //Método que printa os dados do ônibus
+                } 		
         	
         	//Cadastro de Ônibus
         	
