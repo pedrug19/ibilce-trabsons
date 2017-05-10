@@ -12,7 +12,7 @@ public class CadastraOnibus {
 	private int kilometragem;
 	private int ano;
 	private int assentos[];
-	private int i;
+	private int i = 0;
 	private int contador;
 	
 	private CadastraOnibus(String modelo, String marca, int kilometragem, int ano){
@@ -24,15 +24,14 @@ public class CadastraOnibus {
 	
 	public void criarAssentos(int vagas){
 		assentos = new int[vagas];
-		for(i = 0; i < vagas; i++){
-			assentos[i] = 0;
+		for(int j = 0; j < vagas; j++){
+			assentos[j] = 0;
 			contador++;
 		}
 	}
 	
 	public void reservarAssentos(){
 		int achou = 0;
-		i = 0;
 		while(achou==0){
 			if(contador == 0){
 				System.out.println("Onibus cheio!");

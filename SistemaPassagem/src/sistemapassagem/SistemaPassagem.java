@@ -12,12 +12,15 @@ public class SistemaPassagem {
 	
     public static void main(String[] args) {
         int dia, mes, ano, hora, minutos, origem, destino, kilometragem, i, vagas, opcao=0,
-        		 diaAdm, mesAdm, anoAdm;
+        		 diaAdm, mesAdm, anoAdm, horaIda, minIda, horaChegada, minChegada;
+        String cidadeOrigem, cidadeDestino, cidadeParada1, cidadeParada2, cidadeParada3;
+        double preco;
         String nome, rg, profissao, cnh, modelo, marca, endereco;
 		Scanner input = new Scanner(System.in);
         List<CadastraOnibus> listaOnibus = new ArrayList<CadastraOnibus>();
+        CadastraPassageiro passageiro;
         List<CadastraPassageiro> listaPassageiro = new ArrayList<CadastraPassageiro>();
-        List<CadastraRota> listaRota = new ArrayList<CadastraRota>();
+        List<Rota> listaRota = new ArrayList<Rota>();
         List<CadastraMotorista> listaMotorista = new ArrayList<CadastraMotorista>();
         
         /*TODO: FAZER SISTEMA INTEIRO PARA CADASTRAR CADA UM DOS DADOS
@@ -44,6 +47,8 @@ public class SistemaPassagem {
         	System.out.println("15 - Alterar dados de Ônibus");
         	System.out.println("16 - Mostrar dados de Ônibus");
         	System.out.println("-1 - Sair do programa");
+        	
+        	opcao = Integer.parseInt(input.nextLine());
         	
         	/*
         	 * 
@@ -78,8 +83,8 @@ public class SistemaPassagem {
             	else{
             		
             	}
-            	CadastraPassageiro passageiro = new CadastraPassageiro(nome, rg, profissao, endereco, dia, mes, ano);
-            	listaPassageiro.add(passageiro);
+            	//passageiro = new CadastraPassageiro(nome, rg, profissao, endereco, dia, mes, ano);
+            	//listaPassageiro.add(passageiro);
         	}
         	
         	//Cadastro de Motorista
@@ -116,11 +121,20 @@ public class SistemaPassagem {
         		mes = input.nextInt();
         		System.out.print("Digite o ano de admissão: ");
         		ano = Integer.parseInt(input.nextLine());
-        		Data admissao = new Data(dia, mes, ano);
+        		
+        		
+        		//Data admissao = new Data(dia, mes, ano);
+        		//Hora horarioIda = new Hora(horaIda, minIda);
+        		//Hora horarioChegada = new Hora(horaChegada, minChegada);
         	
-        		CadastraMotorista motorista = new CadastraMotorista(nome, cnh, dia, mes, ano, admissao);
-        		listaMotorista.add(motorista);
+        		/*Rota rota = new Rota(cidadeOrigem, cidadeDestino, cidadeParada1,
+        	    		cidadeParada2, cidadeParada3,
+        	    		horarioIda, horarioChegada,
+        	    		data, dataChegada, onibus, preco);*/
+        		//listaRota.add(rota);
         	}
+        	
+        	//Cadastro de Ônibus
         	
         }
         

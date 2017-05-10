@@ -11,8 +11,9 @@ public class CadastraPassageiro {
 	private String nome, rg, profissao, endereco;
 	private int diaNasc, mesNasc, anoNasc;
 	private Data data;
+	private Rota rota;
 	
-	public CadastraPassageiro(String nome, String rg, String profissao, String endereco, int diaNasc, int mesNasc, int anoNasc){
+	public CadastraPassageiro(String nome, String rg, String profissao, String endereco, int diaNasc, int mesNasc, int anoNasc, Rota rota){
 		this.nome = nome;
 		this.rg = rg;
 		this.profissao = profissao;
@@ -20,6 +21,7 @@ public class CadastraPassageiro {
 		this.diaNasc = diaNasc;
 		this.mesNasc = mesNasc;
 		this.anoNasc = anoNasc;
+		this.rota = rota;
 		this.data = new Data(diaNasc, mesNasc, anoNasc);
 	}
 	
@@ -53,7 +55,9 @@ public class CadastraPassageiro {
 		System.out.println("RG: " + rg);
 		System.out.println("Profissão: " + profissao);
 		System.out.println("Endereço: " + endereco);
+		System.out.print("Data de Nascimento: ");
 		data.getData();
-		
+		System.out.println("Passagem: ");
+		rota.getRota();
 	}
 }

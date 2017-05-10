@@ -36,14 +36,14 @@ public class CadastraMotorista {
 	}
 	
 	public void setDatanasc (int diaNasc,int mesNasc, int anoNasc) {
-        this.diaNasc = diaNasc;
-        this.mesNasc = mesNasc;
-        this.anoNasc = anoNasc;
         admissao.setDia(diaNasc);
         admissao.setMes(mesNasc);
         admissao.setAno(anoNasc);
     }
 	//Fim de Alterar Informações*************
+	public String getNome(){
+		return nome;
+	}
 	
 	//Mostrar informações
 	public void getMotorista(){
