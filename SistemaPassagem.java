@@ -14,7 +14,7 @@ public class SistemaPassagem {
         int dia, mes, ano, hora, minutos, origem, destino, kilometragem, i, vagas, opcao=0,
         		 diaAdm, mesAdm, anoAdm;
         String nome, rg, profissao, cnh, modelo, marca, endereco;
-        int op_passa;
+        int op_passa,op_oni,op_moto;
         
         
         
@@ -134,7 +134,7 @@ public class SistemaPassagem {
             	ano = Integer.parseInt(input.nextLine());
             	Data admissao = new Data(dia, mes, ano);
             	
-            	CadastraMotorista motorista = new CadastraMotorista(nome, cnh, dia, mes, ano, admissao);
+            	motorista = new CadastraMotorista(nome, cnh, dia, mes, ano, admissao);
             	listaMotorista.add(motorista);
         	}
                 //Excluir último motorista
@@ -177,12 +177,42 @@ public class SistemaPassagem {
                 
                 //cadastrar onibus
                 if(opcao==13){
+                    System.out.println("\nDigite o modelo:\n");
+                    modelo = input.nextLine();
+                    System.out.println("\nDigite a marca:\n");
+                    marca = input.nextLine();
+                    System.out.println("\nDigite a kilometragem:\n");
+                    kilometragem = input.nextInt();
+                    System.out.println("\nDigite o ano:\n");
+                    ano = input.nextInt();
+                    System.out.println("\n\n");
+                    onibus = new CadastraOnibus(modelo, marca, kilometragem, ano);
+                    listaOnibus.add(onibus);
                 }
+                //excluir
                 if(opcao==14){
+                    System.out.println("Digite o onibus que deseja alterar (número):");
+                    op_oni=input.nextInt();
+                    listaOnibus.remove(onibus[op_oni]);
                 }
+                //alterar
                 if(opcao==15){
+                    System.out.println("Digite o onibus que deseja excluir (número):");
+                    op_oni=input.nextInt();
+                    System.out.println("Digite o modelo: ");
+                    onibus[op_oni].setModelo(input.nextLine());
+                    System.out.println("Digite a marca: ");
+                    onibus[op_oni].setMarca(input.nextLine());
+                    System.out.println("Digite a Kilometragem: ");
+                    onibus[op_oni].setKilometragem(input.nextLine());
+                    System.out.println("Digite o ano: ");
+                    onibus[op_oni].setAno(input.nextLine());
                 }
+                //mostrar
                 if(opcao==16){
+                    System.out.println("Digite o onibus que deseja mostrar (número):");
+                    op_oni=input.nextInt();
+                    onibus[op_oni].getBus();
                 }
         	
         }
