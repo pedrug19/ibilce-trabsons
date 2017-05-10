@@ -102,7 +102,7 @@ public class SistemaPassagem {
             	ano = Integer.parseInt(input.nextLine());
             	Data admissao = new Data(dia, mes, ano);
             	
-            	CadastraMotorista motorista = new CadastraMotorista(nome, cnh, dia, mes, ano, admissao);
+            	CadastraMotorista motorista = new CadastraMotorista(cnh, nome, dia, mes, ano, admissao);
             	listaMotorista.add(motorista);
         	}
                 //Exclui o último motorista da lista
