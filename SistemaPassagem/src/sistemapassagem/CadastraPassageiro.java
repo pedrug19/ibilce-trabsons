@@ -2,86 +2,61 @@ package sistemapassagem;
 
 /**
  *
- * @author Luis Marcello Moraes Silva 
- * Gustavo Molina de Souza
- * Pedrenrique Guimarães
+ * @author Luis Marcello Moraes Silva Gustavo Molina de Souza Pedrenrique
+ * Guimarães
  */
-public class CadastraOnibus {
-	private String modelo;
-	private String marca;
-	private int kilometragem;
-	private int ano;
-	private int assentos[];
-	private int i = 0;
-	private int contador;
-	
-	CadastraOnibus(String modelo, String marca, int kilometragem, int ano){
-		this.modelo = modelo;
-		this.marca = marca;
-		this.kilometragem = kilometragem;
-		this.ano = ano;
-	}
-	
-	public void criarAssentos(int vagas){
-		assentos = new int[vagas];
-		for(int j = 0; j < vagas; j++){
-			assentos[j] = 0;
-			contador++;
-		}
-	}
-	
-	public void reservarAssentos(){
-		int achou = 0;
-		while(achou==0){
-			if(contador == 0){
-				System.out.println("Onibus cheio!");
-				achou = 1;
-			}
-			else{
-				if(assentos[i]==0){
-					assentos[i] = 1;
-					//TODO: ASSINALAR ASSENTO PARA PASSAGEIRO
-					contador--;
-					i++;
-					achou = 1;
-				}
-				/*else{
-					i++;
-				}*/
-			}
-		}
-	}
-	
-	public void getAssentosLivres(){
-		if(contador == 0){
-			System.out.println("Não há assentos livres!");
-		}
-		else{
-			System.out.println("Há " + contador + "assentos livres no ônibus.");
-		}
-	}
-	
-	public void getBus(){
-		System.out.println("Marca: " + marca);
-		System.out.println("Modelo: " + modelo);
-		System.out.println("Ano de Fabricação: " + ano);
-		System.out.println("Kilometragem: " + kilometragem);
-	}
-	
-        public void setMarca(String marca){
-            this.marca= marca;
-        }
-	
-        public void setModelo(String modelo){
-            this.modelo= modelo;
-        }
-	
-        public void setAno(int ano){
-            this.ano= ano;
-        }
-	
-        public void setKilometragem(int kilometragem){
-            this.kilometragem= kilometragem;
-        }	
-	
+public class CadastraPassageiro {
+
+    private String nome, rg, profissao, endereco;
+    private int diaNasc, mesNasc, anoNasc;
+    private Data data;
+    private Rota rota;
+
+    public CadastraPassageiro(String nome, String rg, String profissao, String endereco, int diaNasc, int mesNasc, int anoNasc, Rota rota) {
+        this.nome = nome;
+        this.rg = rg;
+        this.profissao = profissao;
+        this.endereco = endereco;
+        this.diaNasc = diaNasc;
+        this.mesNasc = mesNasc;
+        this.anoNasc = anoNasc;
+        this.rota = rota;
+        this.data = new Data(diaNasc, mesNasc, anoNasc);
+    }
+
+    //Alterar Informações*************
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public void setProfissao(String profissao) {
+        this.profissao = profissao;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public void setDatanasc(int diaNasc, int mesNasc, int anoNasc) {
+        data.setDia(diaNasc);
+        data.setMes(mesNasc);
+        data.setAno(anoNasc);
+    }
+    //Fim de Alterar Informações*************
+
+    //Mostrar informações
+    public void getPassageiro() {
+        System.out.println("Nome: " + nome);
+        System.out.println("RG: " + rg);
+        System.out.println("Profissão: " + profissao);
+        System.out.println("Endereço: " + endereco);
+        System.out.print("Data de Nascimento: ");
+        data.getData();
+        System.out.println("Passagem: ");
+        rota.getRota();
+    }
 }
